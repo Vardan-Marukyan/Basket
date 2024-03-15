@@ -4,7 +4,7 @@ import { Button, Input } from "./style"
 import { Products } from "../createProductItems/CreateProducts"
 
 
-export const ToDoList:React.FC = () => {
+export const ProductFilling:React.FC = () => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState(Number)
@@ -12,16 +12,21 @@ export const ToDoList:React.FC = () => {
 
     const changeInput = (text:string, productPrice:number, description: string) => {
         if(productPrice === 0 || text === "" || description === ""){
-            alert("Pleas input vlaue")
+            alert("Error: Please fill in the data")
         }else{
-            setState([...state, {
-                id: Date.now(),
-                title: text,
-                description: description,
-                price: productPrice,
-                src: "../../images/bread.jpg"
-            }])
+            if(state.find(el => el.title === text)){
+                alert("Error: Such a product already exists")
+            }else{
+                setState([...state, {
+                    id: Date.now(),
+                    title: text,
+                    description: description,
+                    price: productPrice,
+                    src: "../../images/bread.jpg"
+                }])
+            }
         }
+        
     }
 
     return <div>

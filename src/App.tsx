@@ -1,11 +1,11 @@
 
 import './App.css';
-import { ToDoList } from './component/addNewProduct/ToDoList';
+import { ProductFilling } from './component/addNewProduct/FillingOutProductInfo';
 
 function App() {
   return (
     <div className="App">
-      <ToDoList/>
+      <ProductFilling/>
     </div>
   );
 }
